@@ -1,10 +1,3 @@
-/*
-new Formatter(document.getElementById('phone-input'), {
-  'pattern': '({{999}}) {{999}} - {{9999}}',
-  'persistent': false
-});
-*/
-
 function leaveInput(el) {
 		if (el.value.length > 0) {
 				if (!el.classList.contains('active')) {

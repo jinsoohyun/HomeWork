@@ -54,17 +54,32 @@ def index():
 @app.route('/release', methods=["POST"])
 def release():
     if request.method == 'POST':
-      name = request.form['Name-input']
-      number = request.form['phone-input']
+        #insert query
+        if request.form['switch_2'] == 'add':
+            name = request.form['Name-input']
+            number = request.form['phone-input']
 
-      get_db().execute(
-        'insert into management (name, phone) values (?,?);',
-            (
-                name, number
+            get_db().execute(
+            'insert into management (name, phone) values (?,?);',
+                (
+                    name, number
+                )
             )
-        )
-      get_db().commit()
-      return redirect(url_for('index'))
+            get_db().commit()
+            return redirect(url_for('index'))
+
+        #delete query
+        elif request.form['switch_2'] == 'delete':
+            name = request.form['Name-input']
+            number = request.form['phone-input']
+
+            get_db().execute(
+            'delete from management where name="'+name+
+            '" and phone="'+number+'";'
+            )
+            get_db().commit()
+            return redirect(url_for('index'))
+
 
 
 if __name__ == "__main__":

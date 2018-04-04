@@ -29,7 +29,6 @@
       <label for="phone-input">Phone</label>
     </div>
     <script>
-
         function autoHypenPhone(str){
                     str = str.replace(/[^0-9]/g, '');
                     var tmp = '';
@@ -68,11 +67,20 @@
 
     </script>
 
+    <div class="two-div">
+    <div class="switch-field">
+      <div class="switch-title">Operation Type</div>
+      <input type="radio" id="switch_left" name="switch_2" value="add" checked/>
+      <label for="switch_left">Add</label>
+      <input type="radio" id="switch_right" name="switch_2" value="delete" />
+      <label for="switch_right">Delete</label>
+    </div>
 
-
-    <div class="input-group">
+    <div class="input-group2">
       <button class="btn">Submit</button>
     </div>
+    </div>
+
 
   </form>
 
