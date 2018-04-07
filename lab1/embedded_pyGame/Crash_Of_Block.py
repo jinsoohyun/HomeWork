@@ -40,6 +40,31 @@ def drawball(x, y, r):
 
 def updateObject():
     global bx, by, dx, dy, px, py, p_width, p_height
+    bx += dx
+    by += dy
+    if bx > width or bx < 0:
+        dx = dx * (-1)
+
+    if by > height or by < 0:
+        dy = dy * (-1)
+
+    if keys[0] == True:
+        px -= 5
+
+    if keys[1] == True:
+        px += 5
+
+    if px < 0:
+        px = 0
+    if px + p_width > 640:
+        px = width - p_width
+
+def collideCheck():
+    global bx, by, dx, dy, px, py, p_width, p_height, p_vel
+    # Collision Check - ball & paddle
+    if bx > px and bx < px + p_width and by > py:
+        #dx *= -1
+        dy *= -1
 
 
 while True:
@@ -62,26 +87,8 @@ while True:
             elif event.key == K_RIGHT:
                 keys[1] = False
 
-    bx += dx
-    by += dy
-    if bx > width or bx < 0:
-        dx = dx * (-1)
-    if by > height or by < 0:
-        dy = dy * (-1)
-
-    if keys[0] == True:
-        px -= 5
-
-    if keys[1] == True:
-        px += 5
-
-    if px < 0:
-        px = 0
-    if px + p_width > 640:
-        px = width - p_width
-
-
-
+    updateObject()
+    collideCheck()
     drawball(bx, by, radius)
     drawbar(px, py)
     pygame.display.update()
