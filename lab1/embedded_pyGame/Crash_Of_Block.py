@@ -1,6 +1,7 @@
 #coding:utf-8
 # draw ball
 # draw ball & moving it
+# bounce ball
 
 import pygame, sys
 from pygame.locals import *
@@ -35,5 +36,11 @@ while True:
 
     bx += dx
     by += dy
+    if bx > width or bx < 0:
+        dx = dx * (-1)
+    if by > height or by < 0:
+        dy = dy * (-1)
+
+
     drawball(bx, by, radius)
     pygame.display.update()
