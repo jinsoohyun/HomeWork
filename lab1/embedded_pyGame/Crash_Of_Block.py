@@ -2,6 +2,7 @@
 # draw ball
 # draw ball & moving it
 # bounce ball
+# draw bar
 
 import pygame, sys
 from pygame.locals import *
@@ -20,9 +21,17 @@ by = height / 2
 dx = 1
 dy = 1
 
+px = 0
+py = 440
+p_width = 80
+p_height = 10
+
 pygame.init()
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('Crash_Of_Block')
+
+def drawbar(x, y):
+    pygame.draw.rect(screen, WHITE, (px, py, p_width, p_height))
 
 def drawball(x, y, r):
     pygame.draw.circle(screen, WHITE, (int(x), int(y)), r, 0)
@@ -43,4 +52,5 @@ while True:
 
 
     drawball(bx, by, radius)
+    drawbar(px, py)
     pygame.display.update()
