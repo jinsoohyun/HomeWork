@@ -8,7 +8,7 @@
 # check collision block & ball
 # veiw score
 
-import pygame, sys
+import pygame, sys, math, random
 from pygame.locals import *
 
 BLACK   = ( 0,  0,  0)
@@ -24,9 +24,11 @@ bx = width / 2
 by = height / 2
 dx = 1
 dy = 1
+tAngle = 45
 
 px = 0
 py = 440
+p_vel = 10
 p_width = 80
 p_height = 10
 
@@ -35,12 +37,10 @@ bricks_rows = 7
 brickWidth = 75
 brickHeight = 20
 brickPadding = 10
-brickOffsetTop = 30
+brickOffsetTop = 40
 brickOffsetLeft = 30
 
 score = 1000
-
-
 
 keys = [False, False]
 bricks = []
@@ -81,20 +81,27 @@ def drawball(x, y, r):
     pygame.draw.circle(screen, WHITE, (int(x), int(y)), r, 0)
 
 def updateObject():
-    global bx, by, dx, dy, px, py, p_width, p_height
+    global bx, by, dx, dy, px, py, p_width, p_height, p_vel, tAngle
+
     bx += dx
-    by += dy
+    #by += dy
+    by += int( round( math.tan(math.radians(tAngle)) * dx ) ) * -1
+    #print "%r %r" % (bx,  by)
+
     if bx > width or bx < 0:
         dx = dx * (-1)
+        tAngle = 180 - tAngle
 
     if by > height or by < 0:
-        dy = dy * (-1)
+        #dy = dy * (-1)
+        tAngle = 180 - tAngle
+
 
     if keys[0] == True:
-        px -= 5
+        px -= p_vel
 
     if keys[1] == True:
-        px += 5
+        px += p_vel
 
     if px < 0:
         px = 0
@@ -103,20 +110,23 @@ def updateObject():
 
 def collideCheck():
     global bx, by, dx, dy, px, py, p_width, p_height, p_vel
-    global bricks_cols, bricks_rows, brickWidth, brickHeight, brickPadding, brickOffsetTop, brickOffsetLeft
+    global bricks_cols, bricks_rows, brickWidth, brickHeight, brickPadding, brickOffsetTop, brickOffsetLeft, tAngle
     global score
 
     # Collision Check - ball & paddle
     if bx > px and bx < px + p_width and by > py:
         #dx *= -1
-        dy *= -1
+        #dy *= -1
+        tAngle = 180 - tAngle + random.randint(-20, 20)
 
     # check the block collision
     for b in bricks:
         if bx > b[0] and bx < b[0]+brickWidth and by > b[1] and by < b[1]+brickHeight  and b[2] == 1:  #state == 1일 때에만 체크
             b[2] = 0
-            dy *= -1
+            #dy *= -1
+            tAngle = 180 - tAngle
             score += 100
+
 
 
 def drawScore(screen, scoreView):
