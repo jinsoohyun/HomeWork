@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<!-- saved from url=(0098)file:///private/var/folders/t_/3_spx9kn2j1072knxbnnwlvm0000gn/T/mume118330-20014-1c5bctl.5f82.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>HardwareControl</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./HardwareControl_files/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <h2 class="mume-header" id="lab2-hardware-control">Lab2. Hardware Control</h2>
+
+<p align="right">20123383 진수현</p>
+<hr>
+<h3 class="mume-header" id="preparations">Preparations</h3>
+
+<h6 class="mume-header" id="1-gpio%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4-%EC%A0%9C%EC%96%B4%EC%97%90-%EB%8C%80%ED%95%B4-%EC%9D%B4%ED%95%B4%ED%95%9C%EB%8B%A4">1. GPIO를 이용한 하드웨어 제어에 대해 이해한다.</h6>
+
+<ul>
+<li>
+<p>라즈베리 파이의 GPIO 핀 구조는 아래와 같다.<br>
+<img src="./HardwareControl_files/53bc258dc6c0425cb44870b50ab30621.jpg" alt=""></p>
+</li>
+<li>
+<p>General Purpose Input Output의 약자로 <code>범용 입력 출력</code>이란 의미를 가진다. 마이크로프로세서가 주변장치와 통신하기 위해 범용으로 사용되는 입력 출력 포트로써, 하나의 연결 단자를 입력이나 출력으로 고정시키지 않고 선택적으로 사용할 수 있게 융통성을 높인 범용 입출력 단자이다.</p>
+</li>
+</ul>
+<br>
+<ul>
+<li>GPIO는 프로그래머가 그 포트에 대해 입력이냐 출력이냐를 설정할 수 있으며, GPIO 포트는 프로그래머가 설정하기 이전에 사용이 불가능하므로, 사용할 GPIO 포트에 대한 설정을 반드시 지정해야 한다. 입력과 출력이 지정되어 있는 것 보다 자유도가 높아지지만, 그만큼 선택이라는 일을 해야 한다.</li>
+</ul>
+<br>
+<ul>
+<li>GPIO는 입력과 출력 포트를 제어하기 위해 3개의 레지스터를 갖고 있으며, 3개의 레지스터는 PORTx, DDRx, PINx으로 이루어져 있다. PORTx는 말 그대로 포트에 대한 내용이고, PINx는 포트를 이루고 있는 핀에 대한 내용이다.<br>
+<br></li>
+</ul>
+<h6 class="mume-header" id="2-rpigpio-%EB%B0%8F-wiringpi%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4%EC%9A%A9%EC%9D%84-%EC%9D%BD%EA%B3%A0-%EC%9D%B4%ED%95%B4%ED%95%9C%EB%8B%A4">2. RPi.GPIO 및 WiringPi에 대한 내용을 읽고 이해한다.</h6>
+
+<ul>
+<li>아두이노 Wiring 시스템을 이용한 사람들에게 익숙하도록 설계된 C언어 라이브러리</li>
+<li>BCM2835/BCM2836의 GPIO 사용을 위한 C언어 라이브러리</li>
+<li>아두이노 문법과 비슷하게 설계</li>
+</ul>
+<blockquote>
+<p>WiringPi를 사용하기 위해서는 git 패키지가 필요로 하다 그러므로 git 패키지를 최우선적으로 설치를 해야한다.</p>
+</blockquote>
+<br>
+<ul>
+<li>git 패키지 설치</li>
+</ul>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> git-core
+</pre><ul>
+<li>wiringPi 소스코드 빌드 후 설치</li>
+</ul>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token function">git</span> clone git://git.drogon.net/wiringPi
+<span class="token function">cd</span> wiringPi/
+<span class="token function">git</span> pull origin
+./build
+</pre><blockquote>
+<p>위 과정을 순서대로 하면 git 명령어를 이용해서 wiringPi 소스코드를 내려받은 후 빌드해서 설치를 하는 과정.</p>
+</blockquote>
+<br>
+<h6 class="mume-header" id="3-i2c-spi-10wire-uart-%EB%93%B1%EC%9D%98-%EC%A7%81%EB%A0%AC%ED%86%B5%EC%8B%A0-%EB%B0%A9%EC%8B%9D%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4%EC%9A%A9%EC%9D%84-%EC%9D%BD%EA%B3%A0-%EC%9D%B4%ED%95%B4%ED%95%9C%EB%8B%A4">3. I2C, SPI, 10wire, UART 등의 직렬통신 방식에 대한 내용을 읽고 이해한다.</h6>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">항목</th>
+<th>UART</th>
+<th>SPI</th>
+<th>I2C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Interface Diagram</td>
+<td><img src="./HardwareControl_files/UART-interface-diagram.jpg" alt=""></td>
+<td><img src="./HardwareControl_files/SPI-interface-diagram.jpg" alt=""></td>
+<td><img src="./HardwareControl_files/I2C-interface-diagram.jpg" alt=""></td>
+</tr>
+<tr>
+<td style="text-align:left">핀</td>
+<td>TxD: Transmit Data<br>RxD: Receive Data</td>
+<td>SCLK: Serial Clock<br>MOSI: Master Output, Slave Input<br>MISO: Master Input, Slave Output<br>SS: Slave Select</td>
+<td>SDA: Serial Data<br>SCL: Serial Clock</td>
+</tr>
+<tr>
+<td style="text-align:left">Data Rate 데이터 전송 속도</td>
+<td>비동기(asynchronous) 통신이기 때문에 공유하는 Clock  이 없어서 통신하는 양쪽 기기의 속도를 동일하게 맞춰 주어야 한다. 동일하지 않아도 통신이 되는 경우가 있지만 의도하지 않은 데이터가 들어갈 경우가 있다. Maximum 통신 속도는 Model 에 따라 다르며, 일반적으로 115,200bps 이다.</td>
+<td>SPI에서 최대 데이터 속도는 정해져 있지 않다. 보통 10Mbps 에서 20Mbps 사이 이다.</td>
+<td>I2C는 100Kbps, 400Kbps, 3.4Mbps 를 주로 사용하며 10Kbps 나 1Mbps를 사용하는 경우도 있다.</td>
+</tr>
+<tr>
+<td style="text-align:left">Type of communication 통신의 종류</td>
+<td>비동기</td>
+<td>동기</td>
+<td>동기</td>
+</tr>
+<tr>
+<td style="text-align:left">장점</td>
+<td>하드웨어가 간단해서 거의 모든 장치에서 UART를 지원하기 때문에 (9개의 핀이 연결되거나, USB가 있는 장치라면) 편리하다. RS232 라고도 불린다. RS232는 protocol의 이름이며 UART는 그것을 가능하게 해 주는 송수신기를 의미하기 때문이다.</td>
+<td>간단한 프로토콜이기 때문에 구현하는데 어렵지 않다. Full duplex(전체 동시 송수신, 전이중) 통신을 지원한다. 나뉘어진 slave select 라인이 있기 때문에 같은 종류의 칩들이 회로에 사용될 수 있다.SPI는 push-pull을 사용하기 때문에 높은 데이터 전송률을 가지며 긴 거리도 가능하다.SPI는 I2C와 비교하면 적은 파워를 사용한다.</td>
+<td>Open collector 디자인이기 때문에 slew rate(출력 전압의 최대 변화율, 모양이 이상해 지는 것)가 제한적이다.</td>
+</tr>
+<tr>
+<td style="text-align:left">단점</td>
+<td>1:1 통신만 지원한다.동일한 속도를 맞추고 시작해야 한다. 그렇지 않으면 데이터가 깨질 것이다. Voltage level 이 동일해야 한다.</td>
+<td>Slave가 많아지면 각 slave별 라인이 필요하기 때문에 hardware 구성이 복잡해진다.</td>
+<td>Master와 slave가 많아지면 복잡성이 증가한다.</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h6 class="mume-header" id="4-rtc-adc-sensor-%EB%93%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4%EC%9A%A9%EC%9D%84-%EC%9D%BD%EA%B3%A0-%EC%9D%B4%ED%95%B4%ED%95%9C%EB%8B%A4">4. RTC, ADC, Sensor 등에 대한 내용을 읽고 이해한다.</h6>
+
+<ul>
+<li>RTC</li>
+</ul>
+<blockquote>
+<p>Real Time Clock 모듈. 즉,  실시간으로 시간이 흐르는 것을 제어하기 위한 부품. RTC 모듈을 활용해서 특정한 시간에 어떠한 작동을 한다던가 (예를 들면, 알람이 울린다? 불빛을 낸다? 등) 일정 시간 단위로 입력되는 값을 저장하고 출력할 수 있다.</p>
+</blockquote>
+<br>
+<ul>
+<li>ADC</li>
+</ul>
+<blockquote>
+<p>ADC란 Analog to Digital Converter의 준말로, 아날로그 신호(0~5V 사이의 전압)을 디지털 값으로 반환해 주는 기능을 의미합니다. 아두이노에서는 이런 ADC 기능을 analogRead()라는 함수로 제공하며, 0~1023의 정수값을 반환하는데 이는 0~5V의 전압에 선형적으로 비례하기 됩니다. 따라서 우리는 반환된 정수값을 토대로 실제 핀에 들어오는 전압 값을 역산할 수 있다.</p>
+</blockquote>
+<br>
+<ul>
+<li>Sensor</li>
+</ul>
+<blockquote>
+<p>센서란 직접 피측정 대상에 접촉하거나 그 가까이서 데이터를 알아내어 필요한 정보를 신호로 전달하는 장치를 총칭해서 센서(감지기)라고 한다. 센서는 자연에 존재하는 어떠한 물리적인 양을 측정하기 위한 장치로서 특히 전기전자에서는 측정된 값을 전기신호로 바꾸어 주는 장치들을 통틀어서 센서라고 할 수 있다.</p>
+</blockquote>
+<blockquote>
+<p>센서는 능동적 센서와 수동적 센서로 나눌 수 있다. 능동적 센서는 센싱(sensing,감지)을 위하여 장치에서 특정 신호를 발생시켜 그 신호를 기반으로 센싱을 하는 센서이다.(ex. 초음파 거리 측정 센서) 수동적 센서는 센서가 어떠한 지점의 물리 양을 측정하기 위해 능동적으로 환경에 무언가를 만들어 내지 않는 센서이다.(ex.반도체 가스 센서)</p>
+</blockquote>
+<blockquote>
+<p>즉, 원하는 것을 감지/측정하여 신호를 전달하는 장치를 센서(Sensor)라고 한다.</p>
+</blockquote>
+<br>
+<h6 class="mume-header" id="5-%EC%A0%81%EC%99%B8%EC%84%A0-%ED%86%B5%EC%8B%A0-%EB%B0%A9%EC%8B%9D%EC%97%90-%EB%8C%80%ED%95%9C-%EB%82%B4%EC%9A%A9%EC%9D%84-%EC%9D%BD%EA%B3%A0-%EC%9D%B4%ED%95%B4%ED%95%9C%EB%8B%A4">5. 적외선 통신 방식에 대한 내용을 읽고 이해한다.</h6>
+
+<ul>
+<li>적외선이란?<br>
+IR(Infrared)라고 부르며, 가시광선보다 파장이 길며, 햇빛이나 백열된 물체로 부터 방출되는 빛을 스펙트럼으로 분산시켜 보면 적색스펙트럼의 끝보다 더 바깥쪽에 있으므로 적외선이라 한다.</li>
+</ul>
+<p><img src="./HardwareControl_files/saved_resource" alt=""></p>
+<br>
+<blockquote>
+<p>적외선 통신은 송신부와 수신부로 나누어 지고, TV를 예로 들면 TV가 수신부, TV리모컨이 송신부가 된다. 송신부는 IRED로 적외선 발광 다이오드라고 생각하면 된다. 일반 LED와 비슷하다고 생각하면되고 차이점은 일반 LED는 전류가 흐르면 가시광선을 출력하지만, IRED는 전류가 흐르면 적외선을 출력한다는 것이다. 적외선은 사람의 눈으로는 보이지 않기 때문에 IRED가 빛을 내고있는지 눈으로 확인할 수는 없다. 하지만 일반 카메라나 휴대폰 카메라는 적외선 빛을 볼수 있다. 그렇기 때문에 카메라로 IRED를 보게 되면 빛을 내는지 확인 할 수 있다.</p>
+</blockquote>
+<p><img src="./HardwareControl_files/saved_resource(1)" alt=""><img src="./HardwareControl_files/saved_resource(2)" alt=""></p>
+<br>
+<h6 class="mume-header" id="6-%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-%EC%9E%A5%EC%B9%98%EC%97%90-%EB%8C%80%ED%95%B4-%EC%9D%B4%ED%95%B4%ED%95%9C%EB%8B%A4">6. 디스플레이 장치에 대해 이해한다.</h6>
+
+<ul>
+<li>아래 실습을 통해 수행.</li>
+</ul>
+<hr>
+<h3 class="mume-header" id="practice-sequence">Practice sequence</h3>
+
+<h4 class="mume-header" id="practice-1">Practice 1.</h4>
+
+<pre data-role="codeBlock" data-info="" class="language-"><code>Default Hardware Device Control
+
+1. GPIO 를 이용하여, LED, 푸시 버튼 등을 제어할 수 있는 테스트 프로그램을 작성하여 제대로 동작하는지 테스트해 본다.
+
+2. LED의 밝기를 SW 적으로 제어하여 보고 그 원리를 정리해 본다.
+
+3. 기타 푸시 버튼 등의 다른 장치들도 제어해 본다.
+
+4. 푸시 버튼의 bouncing(한번에 한번 이상 눌러지는 현상)을 해결해 보고 그 원리를 정리해 본다.
+
+5. HTML 문서 및 CGI 프로그램 형태로 제어할 수 있도록 구현하여 본다.
+</code></pre><h6 class="mume-header" id="practice-code">Practice Code</h6>
+
+<ul>
+<li>[<a href="http://ledweb.py/">ledWeb.py</a>]</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">from</span> bottle <span class="token keyword">import</span> route<span class="token punctuation">,</span> run<span class="token punctuation">,</span>template
+<span class="token keyword">import</span> RPi<span class="token punctuation">.</span>GPIO <span class="token keyword">as</span> GPIO
+
+led<span class="token operator">=</span><span class="token number">18</span>
+btn<span class="token operator">=</span><span class="token number">24</span>
+ledStates<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+GPIO<span class="token punctuation">.</span>setmode<span class="token punctuation">(</span>GPIO<span class="token punctuation">.</span>BCM<span class="token punctuation">)</span>
+GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span>led<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>OUT<span class="token punctuation">)</span>
+GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span>btn<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>IN<span class="token punctuation">,</span>pull_up_down<span class="token operator">=</span>GPIO<span class="token punctuation">.</span>PUD_DOWN<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">update_leds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">print</span> <span class="token string">'led state : '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>ledStates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>led<span class="token punctuation">,</span>ledStates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+control_page<span class="token operator">=</span><span class="token triple-quoted-string string">"""
+&lt;script&gt;
+function changed(){
+window.location.href='/'
+}
+&lt;/script&gt;
+&lt;h1&gt;GPIO Control&lt;/h1&gt;
+&lt;h2&gt; Button
+%if btnState:
+=Down
+%else:
+=Up
+% end
+&lt;/h2&gt;
+&lt;input type='button' onClick='changed()')
+value='LED {{led}}'/&gt;
+"""</span>
+
+@route<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
+@route<span class="token punctuation">(</span><span class="token string">'/&lt;led&gt;'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  ledStates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">not</span> ledStates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+  update_leds<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  state<span class="token operator">=</span> GPIO<span class="token punctuation">.</span><span class="token builtin">input</span><span class="token punctuation">(</span>btn<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> template<span class="token punctuation">(</span>control_page<span class="token punctuation">,</span> btnState<span class="token operator">=</span>state<span class="token punctuation">,</span>led<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+run<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'0.0.0.0'</span><span class="token punctuation">,</span>port<span class="token operator">=</span><span class="token number">8080</span><span class="token punctuation">)</span>
+</pre><ul>
+<li>[<a href="http://ledpush.py/">ledPush.py</a>]</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">import</span> RPi<span class="token punctuation">.</span>GPIO <span class="token keyword">as</span> GPIO
+<span class="token keyword">import</span> time
+
+
+led<span class="token operator">=</span><span class="token number">18</span>
+btn<span class="token operator">=</span><span class="token number">24</span>
+GPIO<span class="token punctuation">.</span>setmode<span class="token punctuation">(</span>GPIO<span class="token punctuation">.</span>BCM<span class="token punctuation">)</span>
+GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span>led<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>OUT<span class="token punctuation">)</span>
+GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span>btn<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>IN<span class="token punctuation">)</span>
+
+
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  value <span class="token operator">=</span> GPIO<span class="token punctuation">.</span><span class="token builtin">input</span><span class="token punctuation">(</span>btn<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> value<span class="token operator">==</span><span class="token boolean">True</span><span class="token punctuation">:</span>
+    GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>led<span class="token punctuation">,</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+  GPIO<span class="token punctuation">.</span>output<span class="token punctuation">(</span>led<span class="token punctuation">,</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+</pre><ul>
+<li>[<a href="http://ledduty.py/">ledDuty.py</a>]</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">import</span> RPi<span class="token punctuation">.</span>GPIO <span class="token keyword">as</span> GPIO
+<span class="token keyword">import</span> time
+
+
+led<span class="token operator">=</span><span class="token number">18</span>
+GPIO<span class="token punctuation">.</span>setmode<span class="token punctuation">(</span>GPIO<span class="token punctuation">.</span>BCM<span class="token punctuation">)</span>
+GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span>led<span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>OUT<span class="token punctuation">)</span>
+GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>IN<span class="token punctuation">)</span>
+
+pwd_led <span class="token operator">=</span> GPIO<span class="token punctuation">.</span>PWM<span class="token punctuation">(</span>led<span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span>
+pwd_led<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  duty_s <span class="token operator">=</span> <span class="token builtin">raw_input</span><span class="token punctuation">(</span><span class="token string">"Enter Bightness Value (0 to 100):"</span><span class="token punctuation">)</span>
+  duty <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>duty_s<span class="token punctuation">)</span>
+  pwd_led<span class="token punctuation">.</span>ChangeDutyCycle<span class="token punctuation">(</span>duty<span class="token punctuation">)</span>
+  time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+</pre><ul>
+<li>[<a href="http://ledboucing.py/">ledBoucing.py</a>]</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">import</span> RPi<span class="token punctuation">.</span>GPIO <span class="token keyword">as</span> GPIO
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+GPIO<span class="token punctuation">.</span>setmode<span class="token punctuation">(</span>GPIO<span class="token punctuation">.</span>BCM<span class="token punctuation">)</span>
+
+GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token number">19</span><span class="token punctuation">,</span> GPIO<span class="token punctuation">.</span>IN<span class="token punctuation">,</span> pull_up_down<span class="token operator">=</span>GPIO<span class="token punctuation">.</span>PUD_UP<span class="token punctuation">)</span>
+GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">,</span> GPIO<span class="token punctuation">.</span>IN<span class="token punctuation">,</span> pull_up_down<span class="token operator">=</span>GPIO<span class="token punctuation">.</span>PUD_UP<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">Gate</span><span class="token punctuation">(</span>channel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">print</span> <span class="token string">'Gate opened'</span>
+
+<span class="token keyword">def</span> <span class="token function">Bell</span><span class="token punctuation">(</span>channel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">print</span> <span class="token string">'Bell rang'</span>
+
+GPIO<span class="token punctuation">.</span>add_event_detect<span class="token punctuation">(</span><span class="token number">19</span><span class="token punctuation">,</span> GPIO<span class="token punctuation">.</span>RISING<span class="token punctuation">,</span> callback<span class="token operator">=</span>Gate<span class="token punctuation">,</span> bouncetime<span class="token operator">=</span><span class="token number">300</span><span class="token punctuation">)</span>
+GPIO<span class="token punctuation">.</span>add_event_detect<span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">,</span> GPIO<span class="token punctuation">.</span>FALLING<span class="token punctuation">,</span> callback<span class="token operator">=</span>Bell<span class="token punctuation">,</span> bouncetime<span class="token operator">=</span><span class="token number">300</span><span class="token punctuation">)</span>
+
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+  sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+</pre><br>
+<h4 class="mume-header" id="practice-2">Practice 2.</h4>
+
+<pre data-role="codeBlock" data-info="" class="language-"><code>MCP2008 ADC 칩과 가변 저항을 사용하여, 전압(V)을 측정하는 프로그램을 작성하여 실행해보고 그 결과를 확인해 본다.
+</code></pre><h6 class="mume-header" id="%EC%8B%A4%EC%8A%B5-%EC%9E%A5%EB%B9%84-%EA%B5%AC%EC%84%B1">실습 장비 구성</h6>
+
+<p><img src="./HardwareControl_files/mcp3008 ADC_kylnqcv7v.jpeg" alt="mcp3008 ADC"></p>
+<br>
+<h6 class="mume-header" id="practice-code-1">Practice Code</h6>
+
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">import</span> spidev<span class="token punctuation">,</span> time
+
+spi <span class="token operator">=</span> spidev<span class="token punctuation">.</span>SpiDev<span class="token punctuation">(</span><span class="token punctuation">)</span>
+spi<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+spi<span class="token punctuation">.</span>max_speed_hz <span class="token operator">=</span> <span class="token number">1000000</span>
+
+<span class="token keyword">def</span> <span class="token function">analog_read</span><span class="token punctuation">(</span>channel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    r <span class="token operator">=</span> spi<span class="token punctuation">.</span>xfer2<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token operator">+</span>channel<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    adc_out <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>r<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">&amp;</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token operator">+</span>r<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> adc_out
+
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    reading <span class="token operator">=</span> analog_read<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    voltage <span class="token operator">=</span> reading <span class="token operator">*</span> <span class="token number">3.3</span><span class="token operator">/</span><span class="token number">1024</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d T %f V'</span><span class="token operator">%</span><span class="token punctuation">(</span>reading<span class="token punctuation">,</span> voltage<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+</pre><br>
+<h6 class="mume-header" id="practice-result">Practice Result</h6>
+
+<p><img src="./HardwareControl_files/mcp3008 ADC_result_ehbdejwjw.png" alt="mcp3008 ADC_result"></p>
+<br>
+<h4 class="mume-header" id="practice-3">Practice 3.</h4>
+
+<pre data-role="codeBlock" data-info="" class="language-"><code>DS18B20 온도 센서를 구동하는 프로그램을 작성하고 실행시켜 그 결과를 확인해 본다.
+</code></pre><h6 class="mume-header" id="%EC%8B%A4%EC%8A%B5-%EC%9E%A5%EB%B9%84-%EA%B5%AC%EC%84%B1-1">실습 장비 구성</h6>
+
+<p><img src="./HardwareControl_files/DS18B20.jpeg" alt="DS18B20"></p>
+<br>
+<h6 class="mume-header" id="practice-code-2">Practice Code</h6>
+
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">import</span> os<span class="token punctuation">,</span> glob<span class="token punctuation">,</span> time
+<span class="token comment">#os.system('modprobe w1-gpio')</span>
+
+os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'modprobe w1-therm'</span><span class="token punctuation">)</span>
+base_dir <span class="token operator">=</span> <span class="token string">'/sys/bus/w1/devices/'</span>
+device_folder <span class="token operator">=</span> glob<span class="token punctuation">.</span>glob<span class="token punctuation">(</span>base_dir <span class="token operator">+</span> <span class="token string">'28*'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+device_file <span class="token operator">=</span> device_folder <span class="token operator">+</span> <span class="token string">'/w1_slave'</span>
+
+<span class="token keyword">def</span> <span class="token function">read_temp_raw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>device_file<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span>
+    lines <span class="token operator">=</span> f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> lines
+
+
+<span class="token keyword">def</span> <span class="token function">read_temp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    lines <span class="token operator">=</span> read_temp_raw<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">while</span> lines<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">'YES'</span><span class="token punctuation">:</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span>
+        lines <span class="token operator">=</span> read_temp_raw<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    equals_pos <span class="token operator">=</span> lines<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'t='</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> equals_pos <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+        temp_string <span class="token operator">=</span> lines<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>equals_pos<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+
+    temp_c <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>temp_string<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000.0</span>
+    <span class="token keyword">return</span> temp_c
+
+
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>                                                                                                
+    <span class="token keyword">print</span> <span class="token string">"Temper : "</span><span class="token punctuation">,</span>read_temp<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+</pre><br>
+<h6 class="mume-header" id="practice-result-1">Practice Result</h6>
+
+<p><img src="./HardwareControl_files/DS18B20_result.png" alt="DS18B20_result"></p>
+<br>
+<h4 class="mume-header" id="practice-4">Practice 4.</h4>
+
+<pre data-role="codeBlock" data-info="" class="language-"><code>DHT22 온도 센서를 구동하는 프로그램을 작성하고 실행시켜 그 결과를 확인해 본다.
+</code></pre><h6 class="mume-header" id="%EC%8B%A4%EC%8A%B5-%EC%9E%A5%EB%B9%84-%EA%B5%AC%EC%84%B1-2">실습 장비 구성</h6>
+
+<p><img src="./HardwareControl_files/dht22.jpeg" alt="dht22"></p>
+<br>
+<h6 class="mume-header" id="practice-code-3">Practice Code</h6>
+
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment">#!/usr/bin/env python</span>
+
+<span class="token keyword">import</span> Adafruit_DHT
+<span class="token keyword">import</span> time
+sensor <span class="token operator">=</span> Adafruit_DHT<span class="token punctuation">.</span>DHT22
+pin<span class="token operator">=</span><span class="token number">18</span>
+
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    humidity<span class="token punctuation">,</span> temperature <span class="token operator">=</span> Adafruit_DHT<span class="token punctuation">.</span>read_retry<span class="token punctuation">(</span>sensor<span class="token punctuation">,</span> pin<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> humidity <span class="token keyword">is</span> <span class="token operator">not</span> <span class="token boolean">None</span> <span class="token operator">and</span> temperature <span class="token keyword">is</span> <span class="token operator">not</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token string">"Temp={0:0.1f}*C Humidity={1:0.1f}%"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>temperature<span class="token punctuation">,</span> humidity<span class="token punctuation">)</span>
+
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token string">"Failed to get reading. Try again!"</span>
+</pre><br>
+<h6 class="mume-header" id="practice-result-2">Practice Result</h6>
+
+<p><img src="./HardwareControl_files/dht22_result.png" alt="dht22_result"></p>
+<br>
+<h4 class="mume-header" id="practice-5">Practice 5.</h4>
+
+<pre data-role="codeBlock" data-info="" class="language-"><code>온도센서의 측정 값을 DB에 저장하고 웹에 게시하는 프로그램을 작성하고 테스트해 본다.
+</code></pre><h6 class="mume-header" id="%EC%8B%A4%EC%8A%B5-%EC%9E%A5%EB%B9%84-%EA%B5%AC%EC%84%B1-3">실습 장비 구성</h6>
+
+<ul>
+<li>Practice 4와 동일 구성.</li>
+</ul>
+<br>
+<h6 class="mume-header" id="practice-code-4">Practice Code</h6>
+
+<ul>
+<li>[<a href="http://readtemp.py/">readTemp.py</a>]</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">import</span> os<span class="token punctuation">,</span> glob<span class="token punctuation">,</span> time<span class="token punctuation">,</span> sqlite3
+<span class="token keyword">from</span> bottle <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
+
+os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'modprobe w1-therm'</span><span class="token punctuation">)</span>
+
+base_dir <span class="token operator">=</span> <span class="token string">'/sys/bus/w1/devices/'</span>
+device_folder <span class="token operator">=</span> glob<span class="token punctuation">.</span>glob<span class="token punctuation">(</span>base_dir <span class="token operator">+</span> <span class="token string">'28*'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+device_file <span class="token operator">=</span> device_folder <span class="token operator">+</span> <span class="token string">'/w1_slave'</span>
+
+db <span class="token operator">=</span> sqlite3<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token string">"temp.db"</span><span class="token punctuation">)</span>
+cur <span class="token operator">=</span> db<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">read_temp_raw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>device_file<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span>
+	lines <span class="token operator">=</span> f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> lines
+
+<span class="token keyword">def</span> <span class="token function">read_temp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	lines <span class="token operator">=</span> read_temp_raw<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">while</span> lines<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token operator">!=</span><span class="token string">'YES'</span><span class="token punctuation">:</span>
+		time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span>
+		lines <span class="token operator">=</span> read_temp_raw<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	equals_pos <span class="token operator">=</span> lines<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'t='</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> equals_pos <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+		temp_string <span class="token operator">=</span> lines<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>equals_pos<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+	temp_c <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>temp_string<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000.0</span>
+	<span class="token keyword">return</span> temp_c
+
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+	cur_time <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	cur_temp <span class="token operator">=</span> read_temp<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	cur<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"insert into mytemp values(?,?)"</span><span class="token punctuation">,</span><span class="token punctuation">(</span>cur_time<span class="token punctuation">,</span>cur_temp<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">print</span> cur_time
+	<span class="token keyword">print</span> cur_temp
+	time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+</pre><ul>
+<li>[<a href="http://tempbottle.py/">tempbottle.py</a>]</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">from</span> bottle <span class="token keyword">import</span> run<span class="token punctuation">,</span>route<span class="token punctuation">,</span>template<span class="token punctuation">,</span>install
+<span class="token keyword">from</span> bottle_sqlite <span class="token keyword">import</span> SQLitePlugin
+
+sqlite <span class="token operator">=</span> SQLitePlugin<span class="token punctuation">(</span>dbfile<span class="token operator">=</span><span class="token string">"temp.db"</span><span class="token punctuation">)</span>
+install<span class="token punctuation">(</span>sqlite<span class="token punctuation">)</span>
+@route<span class="token punctuation">(</span><span class="token string">'/temp'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">showtemp</span><span class="token punctuation">(</span>db<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    row <span class="token operator">=</span> db<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"select * from mytemp"</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> row<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> template<span class="token punctuation">(</span><span class="token string">'temp_tpl'</span><span class="token punctuation">,</span>items<span class="token operator">=</span>row<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> HTTPError<span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">,</span><span class="token string">"Page not found"</span><span class="token punctuation">)</span>
+
+run<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'0.0.0.0'</span><span class="token punctuation">,</span>port<span class="token operator">=</span><span class="token number">8080</span><span class="token punctuation">)</span>
+</pre><br>
+<h6 class="mume-header" id="practice-result-3">Practice Result</h6>
+
+<p><img src="./HardwareControl_files/result.png" alt="result"></p>
+<br>
+<h4 class="mume-header" id="practice-6">Practice 6.</h4>
+
+<pre data-role="codeBlock" data-info="" class="language-"><code>CP2102 USB-to-UART 칩으로 라즈베리파이와 PC의 USB 포트를 연결하여 통신하는 프로그램을 작성하고 그 결과를 확인해 본다.
+</code></pre><h6 class="mume-header" id="%EC%8B%A4%EC%8A%B5-%EC%9E%A5%EB%B9%84-%EA%B5%AC%EC%84%B1-4">실습 장비 구성</h6>
+
+<p><img src="./HardwareControl_files/uart.jpeg" alt="uart"></p>
+<br>
+<h6 class="mume-header" id="practice-code-5">Practice Code</h6>
+
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">import</span> serial
+
+con <span class="token operator">=</span> serial<span class="token punctuation">.</span>Serial<span class="token punctuation">(</span><span class="token string">'/dev/ttyS0'</span><span class="token punctuation">,</span> <span class="token number">9600</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    text <span class="token operator">=</span> <span class="token builtin">raw_input</span><span class="token punctuation">(</span><span class="token string">"input any text message : "</span><span class="token punctuation">)</span>
+    con<span class="token punctuation">.</span>write<span class="token punctuation">(</span>text<span class="token operator">+</span><span class="token string">'\r\n'</span><span class="token punctuation">)</span>
+
+</pre><br>
+<h6 class="mume-header" id="practice-result-4">Practice Result</h6>
+
+<p><img src="./HardwareControl_files/uart_result.png" alt="uart_result"></p>
+<br>
+<h4 class="mume-header" id="practice-7">Practice 7.</h4>
+
+<pre data-role="codeBlock" data-info="" class="language-"><code>DVK512 보드의 적외선 센서를 활용하여 TV 리모컨을 동작시켜 본다.
+</code></pre><h6 class="mume-header" id="%EC%8B%A4%EC%8A%B5-%EC%9E%A5%EB%B9%84-%EA%B5%AC%EC%84%B1-5">실습 장비 구성</h6>
+
+<p><img src="./HardwareControl_files/ir.jpeg" alt="ir"></p>
+<br>
+<h6 class="mume-header" id="practice-result-5">Practice Result</h6>
+
+<p><img src="./HardwareControl_files/ir_result.png" alt="ir_result"></p>
+<br>
+<h4 class="mume-header" id="practice-8">Practice 8.</h4>
+
+<pre data-role="codeBlock" data-info="" class="language-"><code>LCD1602 보드를 라즈베리파이와 연결하여 LCD 화면에 글자를 출력하는 프로그램을 작성하고 그 결과를 확인해 본다.
+</code></pre><h6 class="mume-header" id="%EC%8B%A4%EC%8A%B5-%EC%9E%A5%EB%B9%84-%EA%B5%AC%EC%84%B1-6">실습 장비 구성</h6>
+
+<p><img src="./HardwareControl_files/result.jpeg" alt="result"></p>
+<br>
+<h6 class="mume-header" id="practice-code-6">Practice Code</h6>
+
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">from</span> Adafruit_CharLCD <span class="token keyword">import</span> Adafruit_CharLCD
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+
+lcd <span class="token operator">=</span> Adafruit_CharLCD<span class="token punctuation">(</span>rs<span class="token operator">=</span><span class="token number">22</span><span class="token punctuation">,</span> en<span class="token operator">=</span><span class="token number">11</span><span class="token punctuation">,</span> d4<span class="token operator">=</span><span class="token number">23</span><span class="token punctuation">,</span> d5<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> d6<span class="token operator">=</span><span class="token number">9</span><span class="token punctuation">,</span> d7<span class="token operator">=</span><span class="token number">25</span><span class="token punctuation">,</span> cols<span class="token operator">=</span><span class="token number">16</span><span class="token punctuation">,</span> lines<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+i<span class="token operator">=</span><span class="token number">0</span>
+
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    lcd<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    lcd<span class="token punctuation">.</span>message<span class="token punctuation">(</span><span class="token string">'Counting: '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    i<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span>
+
+</pre><br>
+<h6 class="mume-header" id="practice-code-7">Practice Code</h6>
+
+<ul>
+<li>None</li>
+</ul>
+<br>
+<h6 class="mume-header" id="practice-result-6">Practice Result</h6>
+
+<ul>
+<li>장비 구성과 동일</li>
+</ul>
+<br>
+<h4 class="mume-header" id="practice-9">Practice 9.</h4>
+
+<pre data-role="codeBlock" data-info="" class="language-"><code>3.5인치 TFT LCD 보드를 라즈베리파이와 연결하여 X 윈도우를 동작시켜본다.
+</code></pre><h6 class="mume-header" id="%EC%8B%A4%EC%8A%B5-%EC%9E%A5%EB%B9%84-%EA%B5%AC%EC%84%B1-7">실습 장비 구성</h6>
+
+<p><img src="./HardwareControl_files/KakaoTalk_Photo_2018-04-29-23-36-49_92.jpeg" alt="KakaoTalk_Photo_2018-04-29-23-36-49_92"></p>
+<br>
+<h6 class="mume-header" id="practice-code-8">Practice Code</h6>
+
+<ul>
+<li>None</li>
+</ul>
+<br>
+<h6 class="mume-header" id="practice-result-7">Practice Result</h6>
+
+<ul>
+<li>장비 구성과 동일</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  </body></html>
